@@ -50,7 +50,7 @@ Plot2: Counted the number of action, adventure, etc. movies in the genre column 
 
 ![IMAGE](hw1-bar.png)
 
-In order to lead audience only focus on the count of movies by genre, instead of color or shape of the plot, I just used single and grey color by `fill="#56B4E9"` in `geom_bar`.
+In order to lead audience only focus on the comparison between genre in terms of count, instead of color or shape of the plot, I just used single and grey color by `fill="#56B4E9"` in `geom_bar`.
 For audience's convenience to compare the count of each genre type, I plotted a decreasing bar plot by creating a new movie dataset based on decreasing 'genre' levels, using the R 
 code shown as below:
 `my_movies<- within(movies, genre <- factor(genre, levels=names(sort(table(genre), decreasing=TRUE))))`.
