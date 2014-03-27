@@ -20,7 +20,7 @@ library(devtools)
 source_url("https://github.com/Cindy597/msan622/blob/master/homework1/cindy_homework1.r")
 ```
 
-This will generate 4 images, including a scatterplot, bar chat, small multiples plot and nulti-line plot. See the following Discussion part for details.
+This will generate 4 images, including a scatterplot, bar chat, small multiples plot and multi-line plot. See the following Discussion part for details.
 
 Optional: In order to keep the generated four png files, please set up you own working directory before running the code by entering the following command in R:
 
