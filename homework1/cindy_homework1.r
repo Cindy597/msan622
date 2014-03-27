@@ -1,7 +1,7 @@
 __author__='Can(Cindy) Jin'
 
-#please fill in your working directory to keep the generated plots 
-setwd("/Users/cindy/Desktop")
+#Optional: please fill in your working directory to keep the generated plots 
+#setwd("/your_working_directory")
 # load the datasets
 library(ggplot2) 
 data(movies) 
@@ -75,8 +75,7 @@ ggsave("hw1-multiples.png",p3,width=10,height=6, dpi=500)
 
 
 #Plot4
-#Produce a multi-line chart from the eu dataset with time shown on the x-axis 
-#and price on the y-axis
+#Produce a multi-line chart from the eu dataset with time shown on the x-axis and price on the y-axis
 index<-as.data.frame(c(rep(colnames(eu)[1],length(eu$DAX)),rep(colnames(eu)[2],length(eu$SMI)),rep(colnames(eu)[3],length(eu$CAC)),rep(colnames(eu)[4],length(eu$FTSE))))
 price<-as.data.frame(c(eu$DAX,eu$SMI,eu$CAC,eu$FTSE))
 time<-as.data.frame(rep(eu$time,4))

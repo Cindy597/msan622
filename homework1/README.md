@@ -22,7 +22,7 @@ source_url("https://github.com/Cindy597/msan622/blob/master/homework1/cindy_home
 
 This will generate 4 images, including a scatterplot, bar chat, small multiples plot and nulti-line plot. See the following Discussion part for details.
 
-Also, in order to keep the generated four png files, please set up you own working directory before running the code by entering the following command in R:
+Optional: In order to keep the generated four png files, please set up you own working directory before running the code by entering the following command in R:
 
 ```
 setwd("/working directory") 
@@ -57,10 +57,11 @@ code shown as below:
 In addition to change the size and color of all text elements in the plot as plot1, I also changed the color of axis.text to red, to highlight the movie type and count numbers.
 
 
-Plot3: Produced a multi-line chart from the eu dataset with time shown on the x-axis and price on the y-axis
+Plot3: Used the genre column in the movies dataset to generate a small-multiples scatterplot using the facet_wrap() function such that 
+budget is shown on the x-axis and rating is shown on the y-axis
 
 ![IMAGE](hw1-multiples.png)
 
-Plot4:
+Plot4: Produced a multi-line chart from the eu dataset with time shown on the x-axis and price on the y-axis
 
 ![IMAGE](hw1-multiline.png)
