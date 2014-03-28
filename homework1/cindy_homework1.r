@@ -1,8 +1,7 @@
 __author__='Can(Cindy) Jin'
 
-# Optional: please fill in your working directory to keep the generated plots 
+#please fill in your working directory to keep the generated plots 
 setwd("/Users/cindy/Desktop")
-
 # load the datasets
 library(ggplot2) 
 data(movies) 
@@ -38,7 +37,7 @@ p1<-ggplot(movies,aes(x=budget,y=rating))+
   ggtitle("Movie Rating versus Budget")+
   xlab("Budget (Million)")+
   ylab("Rating")+
-  theme(text = element_text(size = 15, colour = "blue"))
+  theme(text = element_text(size = 15, colour = "black"))
 print(p1)
 ggsave("hw1-scatter.png",p1,width=10,height=6, dpi=500)
 
@@ -90,7 +89,7 @@ p4<- ggplot(mydata)+
   labs(colour='Index')+
   xlab("Time")+
   ylab("Price")+
-  theme(text = element_text(size = 15, colour = "blue"), legend.text=element_text(size=17,colour="red"))
+  theme(text = element_text(size = 15, colour = "black"), legend.text=element_text(size=17,colour="red"))
 print(p4)
 ggsave("hw1-multiline.png",p4,width=10,height=6, dpi=500)
 

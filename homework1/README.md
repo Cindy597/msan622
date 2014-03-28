@@ -87,3 +87,6 @@ into 'ggplot2' directly. Then the data was grouped by `group=factor(index)` in `
 the difference of trend between four indexes, I enlarged the fonts of legend. Also for this case, I kept the minor grid axes since it was 
 helpful to show the yearly trend of stock prices.
 
+
+Note: All the plots have same text size and color to keep consistence.
+
