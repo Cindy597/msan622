@@ -51,16 +51,18 @@ Plot2: Counted the number of action, adventure, etc. movies in the genre column 
 ![IMAGE](hw1-bar.png)
 
 In order to lead audience only focus on the comparison between genre in terms of count, instead of color or shape of the plot, I just used single and grey color by `fill="#56B4E9"` in `geom_bar`.
-For audience's convenience to compare the count of each genre type, I plotted a decreasing bar plot by creating a new movie dataset based on decreasing 'genre' levels, using the R 
+For audience's convenience to compare the count by movie genre, I plotted a decreasing bar plot by creating a new movie dataset based on decreasing 'genre' levels, using the R 
 code shown as below:
 `my_movies<- within(movies, genre <- factor(genre, levels=names(sort(table(genre), decreasing=TRUE))))`.
-In addition to change the size and color of all text elements in the plot as plot1, I also changed the color of axis.text to red, to highlight the movie type and count numbers.
+In addition to change the size and color of all text elements in the plot as plot1, I also changed the color of axis.text to red, to highlight the movie genre and count numbers.
 
 
 Plot3: Used the genre column in the movies dataset to generate a small-multiples scatterplot using the facet_wrap() function such that 
 budget is shown on the x-axis and rating is shown on the y-axis
 
 ![IMAGE](hw1-multiples.png)
+
+
 
 Plot4: Produced a multi-line chart from the eu dataset with time shown on the x-axis and price on the y-axis
 
