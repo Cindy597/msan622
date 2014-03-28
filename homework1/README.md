@@ -47,6 +47,8 @@ audience understand the insights of this plot clearly.
 
 
 
+
+
 Plot2: Counted the number of action, adventure, etc. movies in the genre column of the movies dataset, and produced a bar plot.
 
 ![IMAGE](hw1-bar.png)
@@ -61,15 +63,19 @@ Last, I removed the legend since it only makes the plot more complex to understa
 
 
 
+
+
 Plot3: Used the genre column in the movies dataset to generate a small-multiples scatterplot using the facet_wrap() function such that 
 budget is shown on the x-axis and rating is shown on the y-axis
 
 ![IMAGE](hw1-multiples.png)
 
-I used `facet_wrap(~genre,nrow=3)` to generate this multiples scatterplot. Since there are 9 types of genre, I got perfect 3x3 grid of panels
+I used `facet_wrap(~genre,nrow=3)` to generate this multiples scatterplot. Since there are 9 types of movies, I got perfect 3x3 grid of panels
 by setting `nrow=3`. As plot 1, I rescaled the movie budgets from dollar to million unit to improve the readability of the intensive xlab. 
 Also, I kept the same point size, theme, and color in this plot as plot 1, which made my plots kind of consistent with each other. Last, people 
 may confused about so many subplots, I did not remove the legend since the legend title clearly showed that the data was grouped by 'Genre'.
+
+
 
 
 
