@@ -88,5 +88,5 @@ the difference of trend between four indexes, I enlarged the fonts of legend. Al
 helpful to show the yearly trend of stock prices.
 
 
-Note: All the plots have same text size and color to keep consistence.
+Note: All the plots have same text size and color to keep consistency.
 
