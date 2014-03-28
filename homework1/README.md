@@ -56,8 +56,7 @@ Plot2: Counted the number of action, adventure, etc. movies in the genre column 
 In order to lead audience only focus on the comparison between genre in terms of count, instead of color or shape of the plot, I just used single and grey color by `fill="#56B4E9"` 
 in `geom_bar`. However, in order to stick with the story about a specific movie genre, for example "Drama", we can just color the "Drama" bar differently to all the others.
 For audience's convenience to compare the count by movie genre, I plotted a decreasing bar plot by creating a new movie dataset based on decreasing 'genre' levels, using the R 
-code shown as below:
-`my_movies<- within(movies, genre <- factor(genre, levels=names(sort(table(genre), decreasing=TRUE))))`.
+code shown as below: `my_movies<- within(movies, genre <- factor(genre, levels=names(sort(table(genre), decreasing=TRUE))))`.
 In addition to change the size and color of all text elements in the plot as plot1, I also changed the color of axis.text to red, to highlight the movie genre and count numbers.
 Last, I removed the legend since it only makes the plot more complex to understand.
 
