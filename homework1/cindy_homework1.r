@@ -1,7 +1,8 @@
 __author__='Can(Cindy) Jin'
 
-#Optional: please fill in your working directory to keep the generated plots 
-#setwd("/your_working_directory")
+# Optional: please fill in your working directory to keep the generated plots 
+setwd("/Users/cindy/Desktop")
+
 # load the datasets
 library(ggplot2) 
 data(movies) 
@@ -50,8 +51,8 @@ ggsave("hw1-scatter.png",p1,width=10,height=6, dpi=500)
 my_movies<- within(movies, genre <- factor(genre, levels=names(sort(table(genre), decreasing=TRUE))))
 p2<-ggplot(my_movies,aes(x=genre))+
   geom_bar(binwidth=1,fill="#56B4E9")+
-  ggtitle("Count of Movies on Genre")+
-  xlab("Genre")+
+  ggtitle("Count of Movies by Genre")+
+  xlab("Movie Genre")+
   ylab("Count")+
   theme(text = element_text(size = 16, colour = "black"),axis.text = element_text(colour = "red"))
 print(p2)
@@ -75,7 +76,8 @@ ggsave("hw1-multiples.png",p3,width=10,height=6, dpi=500)
 
 
 #Plot4
-#Produce a multi-line chart from the eu dataset with time shown on the x-axis and price on the y-axis
+#Produce a multi-line chart from the eu dataset with time shown on the x-axis 
+#and price on the y-axis
 index<-as.data.frame(c(rep(colnames(eu)[1],length(eu$DAX)),rep(colnames(eu)[2],length(eu$SMI)),rep(colnames(eu)[3],length(eu$CAC)),rep(colnames(eu)[4],length(eu$FTSE))))
 price<-as.data.frame(c(eu$DAX,eu$SMI,eu$CAC,eu$FTSE))
 time<-as.data.frame(rep(eu$time,4))
@@ -84,10 +86,10 @@ colnames(mydata)<-c("index","price","time")
 
 p4<- ggplot(mydata)+
   geom_line(aes(x=time,y=price, group=factor(index), color=factor(index)),size=0.8)+
-  ggtitle("Stock Price Trend for 4 different Indexes ")+
+  ggtitle("Stock Price Trend for 4 Different Indexes ")+
   labs(colour='Index')+
-  xlab("time")+
-  ylab("price")+
+  xlab("Time")+
+  ylab("Price")+
   theme(text = element_text(size = 15, colour = "blue"), legend.text=element_text(size=17,colour="red"))
 print(p4)
 ggsave("hw1-multiline.png",p4,width=10,height=6, dpi=500)
