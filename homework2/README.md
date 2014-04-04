@@ -23,7 +23,7 @@ This will start the `shiny` app. See below for details on how to interact with t
 
 ## Discussion ##
 
-Basic requirement:
+**Basic requirement:**
    * I transformed the data to prepare for the visualization: filtered invalid rows, added genre column
    * I created an interactive scatterplot of the movies dataset using the `ggplot2` and `shiny` package (
       the basic scatterplot has budget on the x-axis, the IMDB rating on the y-axis.
@@ -32,7 +32,7 @@ Basic requirement:
 
 
 
-Customization:
+**Customization:**
 * I added a checkbox of smooth that allows the user to choose whether add regression line on the scatter plot or not. Scatter plot 
 is always straight forward for audience to understand the rough structure of the dataset, however, it is difficult for audience 
 to notice the distribution (main located area) and outliers of the dataset. Adding regression line and confidence interval on 
@@ -76,7 +76,7 @@ following code:
    
 
 
-Interact with the visualization:
+**Interact with the visualization:**
 
 
 My `shiny` interface:
