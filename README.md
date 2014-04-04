@@ -1,10 +1,11 @@
 MSAN 622 Data Visualization
 ==============================
 
-| **Name**  | [YOUR NAME] |
+| **Name**  | CAN JIN (Cindy) |
 |----------:|:------------|
-| **Email** | [USERNAME]@dons.usfca.edu |
+| **Email** | cjin7@dons.usfca.edu |
 
 ## About Me ##
 
-[BIO: Fill in a brief bio about yourself here. Keep it between 1 and 3 sentences.]
+[BIO: My background was in Mathematics and Statistics. My dream job title is Data Scientist. And Yelp
+is my dream company.]
