@@ -75,7 +75,9 @@ following code:
 
    
 
+
 Interact with the visualization:
+
 
 My `shiny` interface:
 
@@ -94,7 +96,7 @@ My `shiny` interface:
   * Dot Alpha: Slide the button to select the alpha value in `geom_point()`. It ranges from 0.1 to 1, and it steps by 0.1. The default 
   value is 0.8.
   
-  The following is an additional screenshot of my `shiny` interface after changing several settings:
+The following is an additional screenshot of my `shiny` interface after changing several settings:
   
 ![IMAGE](plot2.png)
 	
