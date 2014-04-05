@@ -37,7 +37,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
       sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
     }
     if (color_scheme=="Default"){
-      if(length(check_smooth)!=0){
+      if(check_smooth==T){
         p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
           geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
           geom_smooth(method=lm)+
@@ -60,7 +60,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
         return(p1)      
       }
     } else{
-      if (length(check_smooth)!=0){
+      if (check_smooth==T){
         p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
           geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
           geom_smooth(method=lm)+
@@ -92,7 +92,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
         sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
       }
       if (color_scheme=="Default"){
-        if(length(check_smooth)!=0){
+        if(check_smooth==T){
           p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
             geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
             geom_smooth(method=lm)+
@@ -115,7 +115,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
           return(p1)      
         }
       } else{
-        if (length(check_smooth)!=0){
+        if (check_smooth==T){
           p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
             geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
             geom_smooth(method=lm)+
