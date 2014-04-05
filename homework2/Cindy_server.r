@@ -31,9 +31,9 @@ loadData <- function(){
 #on the y-axis, and dots colored by the mpaa rating
 myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_scheme,check_smooth,color_by){
   if (nrow(genredata)==0){
-    plot.new()
-    p<-textbox(c(0,0.2),1,c("Empty error"),box=TRUE)
-    return (p)
+  	p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+  		annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
+  	return(p1)
   }else{
     if (color_by =="mpaa"){
       if (vector_mpaa=="All"){
