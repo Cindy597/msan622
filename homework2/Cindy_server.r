@@ -30,62 +30,67 @@ loadData <- function(){
 #create a plot function to get scatter plot which has budget on the x-axis, IMDB rating 
 #on the y-axis, and dots colored by the mpaa rating
 myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_scheme,check_smooth,color_by){
-  if (color_by =="mpaa"){
-    if (vector_mpaa=="All"){
-      sub_movies<-genredata 
-    } else{
-      sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
-    }
-    if (color_scheme=="Default"){
-      if(check_smooth==T){
-        p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-          geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
-          geom_smooth(method=lm)+
-          scale_x_continuous(labels = dollar)+
-          labs(colour='MPAA')+
-          ggtitle("Movie Rating versus Budget")+
-          xlab("Budget (in Million)")+
-          ylab("Rating")+
-          theme(text = element_text(size = 15, colour = "blue"))
-        return(p1)
-      }else{
-        p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-          geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
-          scale_x_continuous(labels = dollar)+
-          labs(colour='MPAA')+
-          ggtitle("Movie Rating versus Budget")+
-          xlab("Budget (in Million)")+
-          ylab("Rating")+
-          theme(text = element_text(size = 15, colour = "blue"))
-        return(p1)      
+  if (nrow(genredata)==0){
+    p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+      +ggtitle("Sorry! Dataset is empty")
+    return (p)
+  }else{
+    if (color_by =="mpaa"){
+      if (vector_mpaa=="All"){
+        sub_movies<-genredata 
+      } else{
+        sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
       }
-    } else{
-      if (check_smooth==T){
-        p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-          geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
-          geom_smooth(method=lm)+
-          scale_x_continuous(labels = dollar)+
-          labs(colour='MPAA')+
-          ggtitle("Movie Rating versus Budget")+
-          xlab("Budget (in Million)")+
-          ylab("Rating")+
-          theme(text = element_text(size = 15, colour = "blue"))+
-          scale_color_brewer(palette = color_scheme)
-        return(p1)  
-      }else{
-        p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-          geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
-          scale_x_continuous(labels = dollar)+
-          labs(colour='MPAA')+
-          ggtitle("Movie Rating versus Budget")+
-          xlab("Budget (in Million)")+
-          ylab("Rating")+
-          theme(text = element_text(size = 15, colour = "blue"))+
-          scale_color_brewer(palette = color_scheme)
-        return(p1)
+      if (color_scheme=="Default"){
+        if(check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)      
+        }
+      } else{
+        if (check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)  
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)
+        }
       }
-    }
-   }else{
+    }else{
       if (vector_mpaa=="All"){
         sub_movies<-genredata 
       } else{
@@ -141,6 +146,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
         }
       }
     }
+  }
 }
 
 globalData <- loadData()
@@ -160,30 +166,30 @@ shinyServer(function(input, output) {
   }
 }
   )
-  output$table<-renderTable({
-    if (input$vectormpaa=="All"){
-      mydata<-genre_data()
-      return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
-    } else{
-      data<-genre_data()
-      mydata<-data[as.character(data$mpaa)==input$vectormpaa,]
-      return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
-    }
-  },include.rownames = FALSE)
+output$table<-renderTable({
+  if (input$vectormpaa=="All"){
+    mydata<-genre_data()
+    return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
+  } else{
+    data<-genre_data()
+    mydata<-data[as.character(data$mpaa)==input$vectormpaa,]
+    return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
+  }
+},include.rownames = FALSE)
 
-  output$ScatterPlot<-renderPlot({
-    ScatterPlot<-myPlot(
-      localFrame,
-      genre_data(),
-      vector_mpaa=input$vectormpaa,
-      dot_size=input$dotsize,
-      dot_alpha=input$dotalpha,
-      color_scheme=input$colorscheme,
-      check_smooth=input$smooth,
-      color_by=input$colorby
-    )
-    print(ScatterPlot)    
-  })
+output$ScatterPlot<-renderPlot({
+  ScatterPlot<-myPlot(
+    localFrame,
+    genre_data(),
+    vector_mpaa=input$vectormpaa,
+    dot_size=input$dotsize,
+    dot_alpha=input$dotalpha,
+    color_scheme=input$colorscheme,
+    check_smooth=input$smooth,
+    color_by=input$colorby
+  )
+  print(ScatterPlot)    
+})
 })
 
 
