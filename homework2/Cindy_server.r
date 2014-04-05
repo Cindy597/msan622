@@ -38,7 +38,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
     }
     if (nrow(sub_movies)==0){
       p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
+        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=9)
       return(p1)
     }else{
     
@@ -101,7 +101,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
     }
     if (nrow(sub_movies)==0){
       p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
+        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=9)
       return(p1)
     }else{
       if (color_scheme=="Default"){
