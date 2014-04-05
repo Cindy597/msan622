@@ -30,18 +30,18 @@ loadData <- function(){
 #create a plot function to get scatter plot which has budget on the x-axis, IMDB rating 
 #on the y-axis, and dots colored by the mpaa rating
 myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_scheme,check_smooth,color_by){
-  if (nrow(genredata)==0){
-  	sub_movies<-genredata
-  	p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
-  		annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
-  	return(p1)
-  }else{
-    if (color_by =="mpaa"){
-      if (vector_mpaa=="All"){
-        sub_movies<-genredata 
-      } else{
-        sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
-      }
+  if (color_by =="mpaa"){
+    if (vector_mpaa=="All"){
+      sub_movies<-genredata 
+    } else{
+      sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]      
+    }
+    if (nrow(sub_movies)==0){
+      p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
+      return(p1)
+    }else{
+    
       if (color_scheme=="Default"){
         if(check_smooth==T){
           p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
@@ -91,12 +91,19 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
           return(p1)
         }
       }
+    }
+  } 
+  else{
+    if (vector_mpaa=="All"){
+      sub_movies<-genredata 
+    } else{
+      sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
+    }
+    if (nrow(sub_movies)==0){
+      p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+        annotate("text",x=1,y=5,label="Sorry! The dataset for your selection perference is empty",colour='blue',size=18)
+      return(p1)
     }else{
-      if (vector_mpaa=="All"){
-        sub_movies<-genredata 
-      } else{
-        sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
-      }
       if (color_scheme=="Default"){
         if(check_smooth==T){
           p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
@@ -150,8 +157,8 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
   }
 }
 
-globalData <- loadData()
 
+globalData <- loadData()
 shinyServer(function(input, output) {
   
   cat("Press \"ESC\" to exit...\n")
@@ -194,3 +201,28 @@ output$ScatterPlot<-renderPlot({
 })
 
 
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
