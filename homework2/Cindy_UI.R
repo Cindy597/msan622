@@ -1,71 +1,194 @@
+library(ggplot2)
 library(shiny)
+library(scales)
 
-# Create a shiny page.
-shinyUI(
-  # create a page with a sidebar for input.
-  pageWithSidebar(  
-    # Add title panel.
-    titlePanel("IMDB Movie Ratings"),
-    
-    # Setup sidebar widgets.
-    sidebarPanel(width=3,
-                 h4("Select Preference"),     
-                 wellPanel(
-                   div(class="row",
-                       div(class="span1"),
-                       div(class="span4",radioButtons(
-                         "vectormpaa", 
-                         "MPAA Rating:", 
-                         c("All", "NC-17","PG","PG-13","R"))),
-                       div(class="span6",checkboxGroupInput(
-                         "vectorgenre",
-                         "Movie Genres:",
-                         c("Action","Animation","Comedy","Drama","Documentary","Romance","Short"),
-                         selected=NULL)))), 
-                 
-                 #Add a checkbox that allows the user to choose whether add regression line on scatter plot or not
-                 checkboxInput("smooth","Smooth",TRUE),
-                 
-                 #Add a drop-down box that allows the user to choose the scatter plot will color by which variable
-                 selectInput(
-                   "colorby", 
-                   "Color By:",
-                   choices=c("mpaa","genre"),
-                   selected="mpaa"),
-                 
-                 #Add a drop-down box that allows the user to change color schemes
-                 selectInput(
-                   "colorscheme", 
-                   "Color Scheme:",
-                   choices=c("Default","Accent","Set1","Set2","Set3","Dark2","Pastel1","Pastel2"),
-                   selected="Default"),
-                 
-                 #Add a slider input from 1 to 10 that controls the size of the dots in the scatterplot
-                 sliderInput("dotsize",
-                             "Dot Size:",
-                             min=1,
-                             max=10,
-                             value=4,
-                             step=1),
-                 #Add a slider input from 0.1 to 1.0 thay steps by 0.1 and controls the alpha value of the dots in scatter plot
-                 sliderInput("dotalpha",
-                             "Dot Alpha:",
-                             min=0.1,
-                             max=1,
-                             value=0.8,
-                             step=0.1)
-    ), 
-    
-    #setup main panel
-    mainPanel(
-      #create a tab panel
-      tabsetPanel(
-        #Add a tab for displaying the scatter plot
-        tabPanel("Scatter Plot", plotOutput("ScatterPlot",width = "100%", height = "450px")),
-        #Add a tab for displaying the table
-        tabPanel("Table",tableOutput("table"))
-      )
-    )
+#create a function for loading and transforming data
+loadData <- function(){
+  data("movies", package = "ggplot2")
+  head(movies)
+  #Filter out any rows that do not have a valid budget value greater than 0
+  movies<-subset(movies, movies$budget>0)
+  #Filter out any rows that do not have a valid MPAA rating in the mpaa column
+  movies<-subset(movies,as.character(movies$mpaa)!="")
+  #Add a genre column to the movies dataset 
+  genre <- rep(NA, nrow(movies))
+  count <- rowSums(movies[, 18:24])
+  genre[which(count > 1)] = "Mixed"
+  genre[which(count < 1)] = "None"
+  genre[which(count == 1 & movies$Action == 1)] = "Action"
+  genre[which(count == 1 & movies$Animation == 1)] = "Animation"
+  genre[which(count == 1 & movies$Comedy == 1)] = "Comedy"
+  genre[which(count == 1 & movies$Drama == 1)] = "Drama"
+  genre[which(count == 1 & movies$Documentary == 1)] = "Documentary"
+  genre[which(count == 1 & movies$Romance == 1)] = "Romance"
+  genre[which(count == 1 & movies$Short == 1)] = "Short"
+  movies$genre<-genre
+  movies$budget<-movies$budget/1000000
+  return(movies)
+}
+
+#create a plot function to get scatter plot which has budget on the x-axis, IMDB rating 
+#on the y-axis, and dots colored by the mpaa rating
+myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_scheme,check_smooth,color_by){
+  if (nrow(genredata)==0){
+    p<-textbox(c(0,0.2),1,c("Sorry! Dataset is empty"))
+    return (p)
+  }else{
+    if (color_by =="mpaa"){
+      if (vector_mpaa=="All"){
+        sub_movies<-genredata 
+      } else{
+        sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
+      }
+      if (color_scheme=="Default"){
+        if(check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)      
+        }
+      } else{
+        if (check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)  
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(mpaa)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='MPAA')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)
+        }
+      }
+    }else{
+      if (vector_mpaa=="All"){
+        sub_movies<-genredata 
+      } else{
+        sub_movies<-genredata[as.character(genredata$mpaa)==vector_mpaa,]
+      }
+      if (color_scheme=="Default"){
+        if(check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='Genre')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='Genre')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))
+          return(p1)      
+        }
+      } else{
+        if (check_smooth==T){
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
+            geom_smooth(method=lm)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='Genre')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)  
+        }else{
+          p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
+            geom_point(aes(colour=factor(genre)),size=dot_size,alpha=dot_alpha)+
+            scale_x_continuous(labels = dollar)+
+            labs(colour='Genre')+
+            ggtitle("Movie Rating versus Budget")+
+            xlab("Budget (in Million)")+
+            ylab("Rating")+
+            theme(text = element_text(size = 15, colour = "blue"))+
+            scale_color_brewer(palette = color_scheme)
+          return(p1)
+        }
+      }
+    }
+  }
+}
+
+globalData <- loadData()
+
+shinyServer(function(input, output) {
+  
+  cat("Press \"ESC\" to exit...\n")
+  localFrame <- globalData  
+  
+  genre_data <- reactive(
+{
+  if (length(input$vectorgenre)==0) {
+    return( genredata<-localFrame)
+  }
+  else {
+    return(genredata<-subset(localFrame,genre %in% input$vectorgenre)   )
+  }
+}
   )
-)
+output$table<-renderTable({
+  if (input$vectormpaa=="All"){
+    mydata<-genre_data()
+    return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
+  } else{
+    data<-genre_data()
+    mydata<-data[as.character(data$mpaa)==input$vectormpaa,]
+    return(mydata[,c(1,2,4,5,17,18,19,20,21,22,23,24,25)])
+  }
+},include.rownames = FALSE)
+
+output$ScatterPlot<-renderPlot({
+  ScatterPlot<-myPlot(
+    localFrame,
+    genre_data(),
+    vector_mpaa=input$vectormpaa,
+    dot_size=input$dotsize,
+    dot_alpha=input$dotalpha,
+    color_scheme=input$colorscheme,
+    check_smooth=input$smooth,
+    color_by=input$colorby
+  )
+  print(ScatterPlot)    
+})
+})
+
 
