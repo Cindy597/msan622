@@ -61,7 +61,7 @@ shinyUI(
       #create a tab panel
       tabsetPanel(
         #Add a tab for displaying the scatter plot
-        tabPanel("Scatter Plot", plotOutput("ScatterPlot")),
+        tabPanel("Scatter Plot", plotOutput("ScatterPlot",width = "100%", height = "400px")),
         #Add a tab for displaying the table
         tabPanel("Table",tableOutput("table"))
       )
