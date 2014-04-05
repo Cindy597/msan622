@@ -33,7 +33,7 @@ myPlot<-function(localFrame,genredata,vector_mpaa,dot_size,dot_alpha,color_schem
   if (nrow(genredata)==0){
     p1<-ggplot(sub_movies,aes(x=budget,y=rating))+
       +ggtitle("Sorry! Dataset is empty")
-    return (p)
+    return (p1)
   }else{
     if (color_by =="mpaa"){
       if (vector_mpaa=="All"){
