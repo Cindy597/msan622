@@ -30,7 +30,7 @@ shiny::runGitHub('msan622', 'Cindy597', subdir='homework3')
 **Dataset:** I added additional columns to `state.x77` dataset to get more options for labels,
 grouping, colors, fills, and facets.
 
-**Visualization:**
+
 ### Technique 1: Bubble Plot ###
 
 X-axis : Illiteracy
@@ -58,17 +58,19 @@ while West and North Central states have relatively small murder size with low-l
 
 
 Customization:
-1). In order to avoid large bubbles overlap small bubbles,I reordered my dataset before `ggplot`.
-2). I kept the legend of bubble size for customer to easily compare that how bigger the buddle for one state
- than another state (provide criteria for comparing murder size)
 
-3). Since the murder size is the most important information I am trying to attract audiences' attention, 
+* In order to avoid large bubbles overlap small bubbles,I reordered my dataset before `ggplot`;
+
+* I kept the legend of bubble size for customer to easily compare that how bigger the buddle for one state
+ than another state (provide criteria for comparing murder size);
+
+* Since the murder size is the most important information I am trying to attract audiences' attention, 
 I added a blue title on the plot to show Circle area (bubble size) is proportional to Murder. 
 Also I changed the legend color to blue and increased the text size of it to highlight them.
 
 
 
-[DISCUSSION]
+
 
 ### Technique 2: ScatterMatrix ###
 
@@ -86,12 +88,13 @@ to find out some useful insights about their correlations to help us make a furt
 Based on the plot above, we can get any information we want about specific columns by both density and scatter plots.
 
 Customization: 
-1). Scatter Matrix looks a little bit more complex than other plots. In order or make the plot as simple as possible,
-I set the upper side of the matrix as blank by `upper = "blank"`. 
-2). I deleted X and Y axises of the density plots on diagonal to keep the ScatterMatrix plot clear and simple.
+
+* Scatter Matrix looks a little bit more complex than other plots. In order or make the plot as simple as possible,
+I set the upper side of the matrix as blank by `upper = "blank"`;
+* I deleted X and Y axises of the density plots on diagonal to keep the ScatterMatrix plot clear and simple.
 
 
-[DISCUSSION]
+
 
 ### Technique 3: Parallel Coordinates Plot ###
 
@@ -111,9 +114,11 @@ we can see a kind of trend for South (up-down-up-down, blue color).The highlight
 Brushing button.
 
 Customization: 
-1).I added `showPoints=TRUE` in `ggparcoord` to show points in the plot. In addition to the lines 
-shown in the plot, the points can display a big picture to audience about the dense and distribution of each variable. 
-2). In order to retrive the trend for a specific region, I modified my code to add a highlight function. The code is shown fellowing:
+
+* I added `showPoints=TRUE` in `ggparcoord` to show points in the plot. In addition to the lines 
+shown in the plot, the points can display a big picture to audience about the dense and distribution of each variable;
+ 
+* In order to retrive the trend for a specific region, I modified my code to add a highlight function. The code is shown fellowing:
 ```
 palette<-brewer_pal(type="qual",palette=color_theme)(4)
 Region<-levels(sub_data$Region)
@@ -123,25 +128,29 @@ p3<-p3+scale_color_manual(values=palette)
 ```
         
 
-[DISCUSSION]
+
 
 ### Interactivity ###
 
 
-
+*window 1
 ![screenshot](screenshot1.png)
+
+
+*window 2
 ![screenshot](screenshot2.png)
+
+*window 3
 ![screenshot](screenshot3.png)
 
-[DISCUSSION]
 
 1. All three techniques are linked. That means change any setting preference will see the changes of all three techniques; 
-   For example, if you select 'West' using brushing, all three techniques should brush 'West' in plot.
+   For example, if you select 'West' using brushing, all three techniques should brush 'West' in plot;
    
 2. Applied  Brushing and Filtering techniques in my shiny interface.
    Brushing: By Region. Since all my plots are colored by Region, Brushing also by Region is a easiest way. I added the highlight code 
    (shown above) in each plot. But the ScatterMatrix is a little bit different. I need access the diagonal and lower sider separately to 
-   change the preference. The fellowing code shown how to brush a certain Region type from plot along non-diagonal.
+   change the preference. The fellowing code shown how to brush a certain Region type from plot along non-diagonal:
     
     ```
         for (i in 1:(ncol(sub_data)-1)){
@@ -186,20 +195,22 @@ p3<-p3+scale_color_manual(values=palette)
             
     ```
    
- 3. Interactive steps:  
+ 4. Interactive steps:  
   * Select variables: 
      Select only two variables for Bubble Plot;
      Select at least two variables for ScatterMatrix and ParallelCoordinate Plots;
      (Do not worry! There will be a hint/warning for you to make correct selection)
      
-  * Brushing: Select any Region type you want to be brushed in all three plots.
-  * Bubble/Point size: All the bubble or point size in three plots can be controlled by this.
-  * Filtering: Select any Population and Income range you want to explore further.
-  * Color Setting: Select any color scheme you prefer to control the color panel of all three plots.
+  * Brushing: Select any Region type you want to be brushed in all three plots;
+  * Bubble/Point size: All the bubble or point size in three plots can be controlled by this;
+  * Filtering: Select any Population and Income range you want to explore further;
+  * Color Setting: Select any color scheme you prefer to control the color panel of all three plots;
   * Instruction: Yeah! There is a brief instruction to help audience to interactive easily.
   
 The following are some additional screenshots of my `shiny` interface after changing several settings:
-
+* window 1
  ![screenshot](screenshot4.png)
+* window 2 
  ![screenshot](screenshot5.png)
+* window 3
  ![screenshot](screenshot6.png)
