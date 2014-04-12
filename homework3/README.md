@@ -194,6 +194,7 @@ p3<-p3+scale_color_manual(values=palette)
             label = "Circle area is proportional to 'Murder'.",size=6)
             
     ```
+    
    
  4. Interactive steps:  
   * Select variables: 
