@@ -144,6 +144,7 @@ p3<-p3+scale_color_manual(values=palette)
 ![screenshot](screenshot3.png)
 
 
+**Approaches**
 1. All three techniques are linked. That means change any setting preference will see the changes of all three techniques; 
    For example, if you select 'West' using brushing, all three techniques should brush 'West' in plot;
    
@@ -196,7 +197,7 @@ p3<-p3+scale_color_manual(values=palette)
     ```
     
    
- 4. Interactive steps:  
+ **Interactive steps:**  
   * Select variables: 
      Select only two variables for Bubble Plot;
      Select at least two variables for ScatterMatrix and ParallelCoordinate Plots;
@@ -209,9 +210,12 @@ p3<-p3+scale_color_manual(values=palette)
   * Instruction: Yeah! There is a brief instruction to help audience to interactive easily.
   
 The following are some additional screenshots of my `shiny` interface after changing several settings:
+
 * window 1
  ![screenshot](screenshot4.png)
+ 
 * window 2 
  ![screenshot](screenshot5.png)
+ 
 * window 3
  ![screenshot](screenshot6.png)
