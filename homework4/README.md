@@ -17,7 +17,7 @@ The following packages must be installed prior to running this code:
 To run this code, please enter the following commands in R:
 ```
 library(devtools)
-source_url("https://raw.githubusercontent.com/Cindy597/msan622/master/homework4/wordcloud.R"
+source_url("https://github.com/Cindy597/msan622/blob/master/homework4/cindy_hw4.r"
 ```
 
 ## Discussion ##
