@@ -22,7 +22,7 @@ source_url("https://github.com/Cindy597/msan622/blob/master/homework4/cindy_hw4.
 
 
  
-## Dataset ## 
+## Dataset 
  My dataset is a collection of five text files (eBooks) about five different materials' story downloaded from
  Project Gutenberg.
  
@@ -94,7 +94,7 @@ The above bar plot is good for limited number of words shown on plot, however, h
 words by five different material types. Here is the heatmap plot top 50 most frequent words. The words on Y-axis is decreasingly sorted by 
 term frequency, and the x-xis shows material types.
 
-![IMAGE](heatmap_plot.png)
+![IMAGE](heatmap.png)
 
 Customization: 
 * Ordered my dataset by term frequency
@@ -113,7 +113,7 @@ accurate count of words. The data-ink ratio is good for this plot after I remove
 In addition to a basic word cloud, I created a 'Comparison Cloud' plot, in which the words are colored by different comparison groups (in my case, this 
 is those five different material types). The plot is shown below:
 
-![IMAGE](wordcloud_plot.png)
+![IMAGE](wordcloud.png)
 
 Similar to basic word cloud plot, the size and color scheme of word are proportional to the term frequency, but colors distinguish the different material groups.
 
