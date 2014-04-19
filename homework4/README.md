@@ -15,14 +15,10 @@ The following packages must be installed prior to running this code:
 - `devtools`
 
 ## Discussion ##
-```
-library(devtools)
-source_url("https://github.com/Cindy597/msan622/blob/master/homework4/cindy_hw4.r")
-```
 
 
- 
-## Dataset 
+
+## Dataset ##
  My dataset is a collection of five text files (eBooks) about five different materials' story downloaded from
  Project Gutenberg.
  
