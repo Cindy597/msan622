@@ -8,11 +8,11 @@ Homework 4: Text Visualization
 ## Instructions ##
 
 The following packages must be installed prior to running this code:
--`ggplot2`
--`tm`
--`SnowballC`
--`wordcloud` 
--`devtools`
+- `ggplot2`
+- `tm`
+- `SnowballC`
+- `wordcloud` 
+- `devtools`
 
 ## Discussion ##
 ```
