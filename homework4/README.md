@@ -36,16 +36,16 @@ source_url("https://github.com/Cindy597/msan622/blob/master/homework4/cindy_hw4.
  Therefore, my visualization purpose is to explore the similarity and  difference of the most frequency (top 10 or other criteria)
  words between different materials' history or story.
  
- Text 1: The Story of Wool by Sara Ware Bassett
- Link:   http://www.gutenberg.org/cache/epub/24858/pg24858.txt
- Text 2: The Story of Silk by Sara Ware Bassett
- Link:   http://www.gutenberg.org/cache/epub/25025/pg25025.txt
- Text 3: The Story of Porcelain by Sara Ware Bassett
- Link:   http://www.gutenberg.org/cache/epub/19423/pg19423.txt
- Text 4: The Story of Leather by Sara Ware Bassett
- Link:   http://www.gutenberg.org/cache/epub/25823/pg25823.txt
- Text 5: The Story of Glass by Sara Ware Bassett
- Link:   http://www.gutenberg.org/cache/epub/20698/pg20698.txt
+ * Text 1: The Story of Wool by Sara Ware Bassett
+ * Link:   http://www.gutenberg.org/cache/epub/24858/pg24858.txt
+ * Text 2: The Story of Silk by Sara Ware Bassett
+ * Link:   http://www.gutenberg.org/cache/epub/25025/pg25025.txt
+ * Text 3: The Story of Porcelain by Sara Ware Bassett
+ * Link:   http://www.gutenberg.org/cache/epub/19423/pg19423.txt
+ * Text 4: The Story of Leather by Sara Ware Bassett
+ * Link:   http://www.gutenberg.org/cache/epub/25823/pg25823.txt
+ * Text 5: The Story of Glass by Sara Ware Bassett
+ * Link:   http://www.gutenberg.org/cache/epub/20698/pg20698.txt
  
  Total number of words in those five files are greater than one thousand and less than a million.
  
