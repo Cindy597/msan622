@@ -8,14 +8,18 @@ Homework 4: Text Visualization
 ## Instructions ##
 
 The following packages must be installed prior to running this code:
-`ggplot2`
-`tm`
-`SnowballC`
-`wordcloud` 
-`devtools`
-
+-`ggplot2`
+-`tm`
+-`SnowballC`
+-`wordcloud` 
+-`devtools`
 
 ## Discussion ##
+```
+library(devtools)
+source_url("https://github.com/Cindy597/msan622/blob/master/homework4/cindy_hw4.r")
+```
+
 
  
 ## Dataset ## 
