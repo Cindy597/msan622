@@ -57,7 +57,7 @@ price dresses on a same plot to see the difference.
   First page: Trend of sales. This page is for customers or managers to find out the trend of specific dresses.
   They can set up any selection preference.
   
-  ![IMAGE](cindy.png)
+  ![IMAGE](cindy1.png)
  
 * Second page: Analysis of relationship between features. This page is for managers to explore which attributes or features have
   effect on the sales or price of a specific dress. Also, some bar plot can address more detailed information by comparing several 
