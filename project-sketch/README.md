@@ -63,13 +63,13 @@ price dresses on a same plot to see the difference.
   effect on the sales or price of a specific dress. Also, some bar plot can address more detailed information by comparing several 
   different dress types.
  
-   ![IMAGE](cindy2.png)
+  ![IMAGE](cindy2.png)
  
 * Third page: Time series prediction about sales and prediction whether a dress will be recommended for other customers (by the binary 
 variable 'recommend', its value is 0 or 1). Manegers can set up their setting about time to see the predicted sales trend for further 
 1 month or other time window. Also, managers also can see whether a dress will be recommended based on the result of logistic regression model.
 
-   ![IMAGE](cindy3.png)
+  ![IMAGE](cindy3.png)
 
 
 
