@@ -28,8 +28,8 @@ shinyUI(
         tabsetPanel(
           tags$head(tags$style("body {background-color: #ADD8E6; }")),
           #Add a tab for displaying the scatter plot
-          tabPanel("Area Chat", plotOutput("AreaChat",width = "100%", height = "450px")),
-          tabPanel("Heatmap", plotOutput("Heatmap",width = "100%", height = "450px"))
+          tabPanel("Area Chat", plotOutput("AreaChat",width = "100%", height = "400px")),
+          tabPanel("Heatmap", plotOutput("Heatmap",width = "100%", height = "400px"))
         )
       )
     ),
