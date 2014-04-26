@@ -27,11 +27,13 @@ shiny::runGitHub('msan622', 'Cindy597', subdir='homework5')
 
 ## Discussion ##
 
-**Dataset:** I added additional columns to `state.x77` dataset to get more options for labels,
-grouping, colors, fills, and facets.
+I chose option 2: Interactive with two linked techniques.
+
+**Dataset:** I converted `Seatbelts` dataset to a melt data frame to plot in ggplot2, please see my choice for labels,
+grouping, colors, fills, and facets below in detail.
 
 
-### Technique 1: Bubble Plot ###
+### Technique 1: Stacked Area Plot ###
 
 X-axis : Illiteracy
 Y-axis: Income
@@ -72,7 +74,7 @@ Also I changed the legend color to blue and increased the text size of it to hig
 
 
 
-### Technique 2: ScatterMatrix ###
+### Technique 2: Heatmap ###
 
 Selected columns for scatter-matrix: Population, Life Expectation, Income, Illiteracy,Murder.
 The column to use for coloring data: Region.
