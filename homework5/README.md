@@ -122,15 +122,15 @@ the plot area to make the data density reasonable.
 
 *** Approaches ***
 
-*. All three techniques are linked. That means change any setting preference will see the changes of all three techniques; 
+1. All three techniques are linked. That means change any setting preference will see the changes of all three techniques; 
    For example, if you select 'drivers' in `Select Variables`, all three techniques should just plot for "drivers" death;
    
-*. Applied Filtering techniques in my shiny interface.
+2. Applied Filtering techniques in my shiny interface.
     
    Filtering: By Year and Distance range. By adding two slider bars with two buttons to control their range, I can subset my dataset
    easily for filtering.
  
-*. Select any variables in to my plot (challenge): In stead of selecting certain variables to label, 
+3. Select any variables in to my plot (challenge): In stead of selecting certain variables to label, 
     I can select any at least variables interested in the stacked area chat, and select only one variable for Heatmap.
     One challenge is I needed to change xlim and ylim every time when 
     the selected variables changed. For example, in Stacked Area chat, when variable changed from front to rear, 
