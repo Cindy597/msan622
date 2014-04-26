@@ -59,7 +59,7 @@ shinyUI(
                       "Distance Range:",
                       min = 7685, 
                       max = 21626, 
-                      value = c(9000,19000)
+                      value = c(7685,21626)
           ) 
         )
       ),
