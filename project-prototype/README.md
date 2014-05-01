@@ -12,6 +12,8 @@ Project: Prototype
 ## One possible plot ##
 ![IMAGE](importance2.png)
 
+***
+
 ![IMAGE](importance1.png)
 
 ## Expected Interface ##
