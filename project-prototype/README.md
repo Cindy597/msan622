@@ -29,7 +29,7 @@ how important that variable is in classifying the data.
 The feature with higher importance means it has more effect on this model. 
 The plot shows each variable on the y-axis, and their importance on the x-axis.
 They are ordered top-to-bottom as most-to-least importance.  Therefore, the most important variables are at the top and an estimate of their 
-importance is given by the position of the dot on the x-axis. You should use the most important variables, as determined from the variable
+importance is given by the position of the dot on the x-axis. We should use the most important variables, as determined from the variable
 importance plot, in the PCA, CDA, or other analyses. 
 In addition, there are two importance criteria
 called 'MeanDecreaseAccuracy' and 'MeanDecreaseGini' respectively.
