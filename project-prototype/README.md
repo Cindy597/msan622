@@ -10,10 +10,19 @@ Project: Prototype
 ## Dataset ##
 
 ## One possible plot ##
-![IMAGE](importance1.png)
 ![IMAGE](importance2.png)
+
+![IMAGE](importance1.png)
 
 ## Expected Interface ##
 ![IMAGE](ScreenShot1.png)
+
+***
+
 ![IMAGE](ScreenShot2.png)
+
+***
+
 ![IMAGE](ScreenShot3.png)
+
+***
