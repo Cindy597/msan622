@@ -1,10 +1,19 @@
 Project: Prototype
 ==============================
 
-| **Name**  | [YOUR NAME]  |
+| **Name**  | CAN JIN (Cindy)  |
 |----------:|:-------------|
-| **Email** | [USERNAME]@dons.usfca.edu |
+| **Email** | cjin7@dons.usfca.edu |
 
 ## Discussion ##
 
-[DISCUSSION: Include a discussion here if required by the assignment.]
+## Dataset ##
+
+## One possible plot ##
+![IMAGE](importance1.png)
+![IMAGE](importance2.png)
+
+## Expected Interface ##
+![IMAGE](ScreenShot1.png)
+![IMAGE](ScreenShot2.png)
+![IMAGE](ScreenShot3.png)
