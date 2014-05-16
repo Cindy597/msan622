@@ -984,7 +984,7 @@ shinyServer(function(input, output) {
    NeckLine<-4
  }else if (NeckLine=="slash-neck"){
    NeckLine<-5
- }else if (NeckLine=="Sweetheart"){
+ }else if (NeckLine=="sweetheart"){
    NeckLine<-6
  }
  

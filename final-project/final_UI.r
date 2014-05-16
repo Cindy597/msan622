@@ -286,7 +286,7 @@ shinyUI(
                                             column(3,
                                                    radioButtons("NeckLine",label="NeckLine",
                                                                       list('o-neck','v-neck','boat-neck','bowneck',
-                                                                                   'slash-neck','Sweetheart'))),
+                                                                                   'slash-neck','sweetheart'))),
                                             column(3,
                                                    selectInput("Material",label="Material",
                                                                choices=c('cotton','mix','knitting','lace',
