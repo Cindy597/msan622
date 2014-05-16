@@ -23,8 +23,10 @@ The following packages must be installed prior to running this code:
 
 
 To run this code, please enter the following commands in R:
+```
 library(shiny)
 shiny::runGitHub('msan622', 'Cindy597', subdir='final-project')
+```
 
 ## Discussion ##
 
