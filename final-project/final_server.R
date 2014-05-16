@@ -1043,9 +1043,9 @@ shinyServer(function(input, output) {
  
     new_point<-as.data.frame(cbind('Style','Price','Rating','waiseline','Size','Season','Material','SleeveLength','Neckline','FabricType','Decoration','Pattern.Type'))
     if (as.numeric(predict(modelpure,new_point,predict.all=TRUE)$individual[500])==1){
-      paste("Congraulations! Your selected dress style is recommended by other customers.")
+      paste("Congraulations! Your selected dress type is recommended by other customers.")
     }else{
-      paste ("Sorry! Your selected dress style is not recommended by other customers. Try again!")
+      paste ("Sorry! Your selected dress type is not recommended by other customers. Try again!")
     }
   })
 })

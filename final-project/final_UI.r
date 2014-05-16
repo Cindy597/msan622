@@ -220,7 +220,7 @@ shinyUI(
                           titlePanel("Dress Sales"),
                           
                           # Setup sidebar widgets.
-                          sidebarPanel(width=4,
+                          sidebarPanel(width=3,
                                        h4("Select Preference"),     
                                        wellPanel(textInput(
                                          "future_time", 
