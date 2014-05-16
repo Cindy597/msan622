@@ -1042,7 +1042,7 @@ shinyServer(function(input, output) {
  }
  
     new_point<-as.data.frame(cbind('Style'= Style,'Price'=Price,'Rating'=Rating,'waiseline'=waiseline,'Size'=Size,
-                                   'Season'=Season,'Material'=Material,'SleeveLength'=SleeveLength,'Neckline'=Neckline,
+                                   'Season'=Season,'Material'=Material,'SleeveLength'=SleeveLength,'NeckLine'=NeckLine,
                                    'FabricType'=FabricType,'Decoration'=Decoration,'Pattern.Type'=Pattern.Type))
     if (as.numeric(predict(modelpure,new_point,predict.all=TRUE)$individual[500])==1){
       paste("Congraulations! Your selected dress type is recommended by other customers.")
