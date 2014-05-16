@@ -868,180 +868,182 @@ shinyServer(function(input, output) {
     Rating<-input$Rating
     
     if (Season=="Automn"){
-      'Season'<-2
+      Season<-2
     }else if(Season=="spring"){
-      'Season'<-1
+      Season<-1
     }else if(Season=="summer"){
-      'Season'<-3
+      Season<-3
     }else if(Season=="winter"){
-      'Season'<-4
+      Season<-4
     }
      
     if (Price=="Average"){
-      'Price'<-1
+      Price<-1
     }else if(Price=="high"){
-      'Price'<-2
+      Price<-2
     }else if(Price=="low"){
-      'Price'<-3
+      Price<-3
     }else if(Price=="Medium"){
-      'Price'<-4
+      Price<-4
     }else if(Price=="very-high"){
-      'Price'<-5
+      Price<-5
     }
 
     
    if (waiseline=="dropped"){
-     'waiseline'<-1
+     waiseline<-1
    }else if (waiseline=="empire"){
-     'waiseline'<-2
+     waiseline<-2
    }else if (waiseline=="natural"){
-     'waiseline'<-3
+     waiseline<-3
    }else if (waiseline=="princess"){
-     'waiseline'<-4
+     waiseline<-4
    }else if (waiseline=="null"){
-     'waiseliine'<-5
+     waiseliine<-5
    }
    
    if (Size=="free"){
-     'Size'<-1
+     Size<-1
    }else if (Size=="L"){
-     'Size'<-2
+     Size<-2
    }else if (Size=="M"){
-     'Size'<-3
+     Size<-3
    }else if (Size=="s"){
-     'Size'<-4
+     Size<-4
    }else if (Size=="XL"){
-     'Size'<-5
+     Size<-5
    }
    
 
    if (Style=='bohemian'){
-     'Style'<-1
+     Style<-1
    }else if (Style=='Brief'){
-     'Style'<-2
+     Style<-2
    }else if (Style=='Casual'){
-     'Style'<-3
+     Style<-3
    }else if (Style=='cute'){
-     'Style'<-4
+     Style<-4
    }else if (Style=='fashion'){
-     'Style'<-5
+     Style<-5
    }else if (Style=='Flare'){
-     'Style'<-6
+     Style<-6
    }else if (Style=='Novelty'){
-     'Style'<-7
+     Style<-7
    }else if (Style=='OL'){
-     'Style'<-8
+     Style<-8
    }else if (Style=='party'){
-     'Style'<-9
+     Style<-9
    }else if (Style=='sexy'){
-     'Style'<-10
+     Style<-10
    }
    
    
    
   if (Material=="mix"){
-    'Material'<-1
+    Material<-1
   }else if (Material=="cotton"){
-    'Material'<-2
+    Material<-2
   }else if (Material=="knitting"){
-    'Material'<-3
+    Material<-3
   }else if (Material=="lace"){
-    'Material'<-4
+    Material<-4
   }else if (Material=="silk"){
-    'Material'<-5
+    Material<-5
   }else if (Material=="null"){
-    'Material'<-6
+    Material<-6
   }else if (Material=="rayon"){
-    'Material'<-10
+    Material<-10
   }else if (Material=="nylon"){
-    'Material'<-14
+    Material<-14
   }else if (Material=="other"){
-    'Material'<-21
+    Material<-21
   }
   
   
   
   if (SleeveLength=="sleevless"){
-    'SleeveLength'<-1
+    SleeveLength<-1
   }else if (SleeveLength=="halfsleeve"){
-    'SleeveLength'<-2
+    SleeveLength<-2
   }else if (SleeveLength=="full"){
-    'SleeveLength'<-3
+    SleeveLength<-3
   }else if (SleeveLength=="capsleeves"){
-    'SleeveLength'<-4
+    SleeveLength<-4
   }else if (SleeveLength=="short"){
-    'SleeveLength'<-5
+    SleeveLength<-5
   }
  
 
  if (NeckLine=="o-neck"){
-   'NeckLine'<-1
+   NeckLine<-1
  }else if (NeckLine=="v-neck"){
-   'NeckLine'<-2
+   NeckLine<-2
  }else if (NeckLine=="boat-neck"){
-   'NeckLine'<-3
+   NeckLine<-3
  }else if (NeckLine=="bowneck"){
-   'NeckLine'<-4
+   NeckLine<-4
  }else if (NeckLine=="slash-neck"){
-   'NeckLine'<-5
+   NeckLine<-5
  }else if (NeckLine=="Sweetheart"){
-   'NeckLine'<-6
+   NeckLine<-6
  }
  
  
  
  if (FabricType=="chiffon"){
-   'FabricType'<-1
+   FabricType<-1
  }else if (FabricType=="null"){
-   'FabricType'<-2
+   FabricType<-2
  }else if (FabricType=="worsted"){
-   'FabricType'<-3
+   FabricType<-3
  }else if (FabricType=="broadcloth"){
-   'FabricType'<-4
+   FabricType<-4
  }else if (FabricType=="sattin"){
-   'FabricType'<-5
+   FabricType<-5
  }else if (FabricType=="jersey"){
-   'FabricType'<-6
+   FabricType<-6
  }else if (FabricType=="dobby"){
-   'FabricType'<-7
+   FabricType<-7
  }else if(FabricType=="poplin"){
-   'FabricType'<-10
+   FabricType<-10
  }
  
  
  
  if (Decoration=='null'){
-   'Decoration'<-1
+   Decoration<-1
  }else if (Decoration=="beading"){
-   'Decoration'<-2
+   Decoration<-2
  }else if (Decoration=="lace"){
-   'Decoration'<-3
+   Decoration<-3
  }else if (Decoration=="bow"){
-   'Decoration'<-4
+   Decoration<-4
  }else if (Decoration=="sashes"){
-   'Decoration'<-5
+   Decoration<-5
  }else if (Decoration== "pockets"){
-   'Decoration'<-10
+   Decoration<-10
  }
  
  
  if (Pattern.Type=="solid"){
-   'Pattern.Type'<-1
+   Pattern.Type<-1
  }else if (Pattern.Type=="null"){
-   'Pattern.Type'<-2
+   Pattern.Type<-2
  }else if (Pattern.Type=="print"){
-   'Pattern.Type'<-4
+   Pattern.Type<-4
  }else if (Pattern.Type=="animal"){
-   'Pattern.Type'<-5
+   Pattern.Type<-5
  }else if (Pattern.Type=="striped"){
-   'Pattern.Type'<-6
+   Pattern.Type<-6
  }else if (Pattern.Type== "dot"){
-   'Pattern.Type'<-7
+   Pattern.Type<-7
  }else if (Pattern.Type=="plaid"){
-   'Pattern.Type'<-8
+   Pattern.Type<-8
  }
  
-    new_point<-as.data.frame(cbind('Style'= 1,'Price','Rating','waiseline','Size','Season','Material','SleeveLength','Neckline','FabricType','Decoration','Pattern.Type'))
+    new_point<-as.data.frame(cbind('Style'= Style,'Price'=Price,'Rating'=Rating,'waiseline'=waiseline,'Size'=Size,
+                                   'Season'=Season,'Material'=Material,'SleeveLength'=SleeveLength,'Neckline'=Neckline,
+                                   'FabricType'=FabricType,'Decoration'=Decoration,'Pattern.Type'=Pattern.Type))
     if (as.numeric(predict(modelpure,new_point,predict.all=TRUE)$individual[500])==1){
       paste("Congraulations! Your selected dress type is recommended by other customers.")
     }else{
