@@ -92,7 +92,7 @@ the interface give advice for them to make better decision by modeling and predi
 
 ## Techniques ##
 
-Technique One --- Heatmap
+# Technique One --- Heatmap #
 
 ![IMAGE](Tech1.png)
 
@@ -142,7 +142,7 @@ Technique One --- Heatmap
   
 
 
-Technique Two --- Small Multiples
+# Technique Two --- Small Multiples #
 
 ![IMAGE](Tech2.png)
 
@@ -188,4 +188,19 @@ Technique Two --- Small Multiples
   
   
   
+# Technique Three --- Boxplot #
+
+  ![IMAGE](Tech3.png)
+
+
+
+
+
+# Technique Four --- Mosaic Plot # 
+
+  ![IMAGE](Tech4.png)
+
+# Technique Five --- Time Series Plot # 
+
+  ![IMAGE](Tech5.png)
   
