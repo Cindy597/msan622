@@ -94,13 +94,45 @@ the interface give advice for them to make better decision by modeling and predi
 
 Technique One --- Heatmap
 
-* Reason for choosing this technique: 
-  The majority of my dataset is historical sales record for different types of dresses. A basic business 
-question I want to figure out is what is the trend of sales for a specific dress type. Heatmap is a good idea to see the big picture of a dress types' 
-sales trend by month and day.  Heatmap helped me to examine the relationship between two variables. 
-For example, when I used `day` as x axis and `month` as y axis, I found out some buckets which have higher sales(Red buckets).
-
 ![IMAGE](Tech1.png)
+
+* How I encoded the data:
+  First, I only used numerical variables --- sales record for this plot; 
+  Second, I deleted `NA` values by using `na.omit`; 
+  Third,  I melt and ordered the data by `Dress_ID`;
+  In addition, I changed the time format by using `as.POSIXLT`;
+  Last but not least, I scaled the months and set up my own limits and breaks for `scale_prgn` in Heatmap.
+  
+* Evaluation:
+  The lie factor of this plot is 1 since there is no misrepresentation and the color of each cell is just based on the 
+  accurate calculation of sales; The data-density is high enough in this plot; The data-ink ratio is good for this plot after
+  I removed excessive axis titles, grid, tick marks, and legend.
+  The code i used for this customization is :
+  ```
+      panel.background = element_blank()+
+      theme(panel.grid.major.x = element_blank()) +
+      theme(panel.grid.minor.y = element_blank()) +
+      theme(axis.ticks.x = element_blank()) +
+      theme(axis.text.x = element_text(size = 12)) +
+      theme(axis.title.x = element_blank())
+      
+  ```
+
+* Reason for choosing this technique (What I think the visualization excels at) : 
+  The majority of my dataset is historical sales record for different types of dresses. A basic business 
+  question I want to figure out is what is the trend of sales for a specific dress type. Heatmap is a good idea 
+  for identifying a dress types' sales trend , and the heatmap enable comparisons among different months over day in a same view.  
+  Heatmap helped me to examine the relationship between two variables. 
+  For example, when I used `day` as x axis and `month` as y axis, I found out some buckets which have higher sales(blue buckets).
+
+* What I learned about the dataset from the visualization:
+  From the above heapmap, we can see the sales from August 5th to August 20th for this dress type were pretty high, and
+  it reached maximum on August 20th; for April, May, and Jun, the sales trend for this dress type was very steady (keep moderate 
+  sales record); while the sales decreased in September, and even closed to 0 in the end of October.
+  
+
+  
+Technique Two --- Multiple Lines
 
 
 
