@@ -6,7 +6,7 @@ Final Project
 | **Email** | cjin7@dons.usfca.edu |
 
 
-## Instructions##
+# Instructions#
 
 The following packages must be installed prior to running this code:
 - `ggplot2`
@@ -28,9 +28,9 @@ library(shiny)
 shiny::runGitHub('msan622', 'Cindy597', subdir='final-project')
 ```
 
-## Discussion ##
+# Discussion #
 
-## Dataset ##
+# Dataset #
 My dataset is about dress sales for 550 different types of dresses distinguished by `Dress ID`. The dataset includes
 historical sales records from 2013/04/02 to 2013/12/30, and several features, for example 'style', 'price', 'size' and so on.
 And there is a binary variable called 'Recommendation' to indicate whether a dress is recommended for other
@@ -61,7 +61,7 @@ write.csv(mytotal,file='merged_dress_sales.csv')
 ```
 
 
-## Overview ##
+# Overview #
 
 My shiny interface is developed for customer or managers to analyze sales trend of their interested dresses, explore insights about
 features relationship, predict further sales trend of a specific dress, and finally get advice about whether a dress style designed by themselves will be recommended by 
@@ -90,9 +90,9 @@ Overall, my shiny interface provide comprehensive functions for customers or man
 the interface give advice for them to make better decision by modeling and prediction.
 
 
-## Techniques ##
+# Techniques #
 
-# Technique One --- Heatmap #
+## Technique One --- Heatmap ##
 
 ![IMAGE](Tech1.png)
 
@@ -142,7 +142,7 @@ the interface give advice for them to make better decision by modeling and predi
   
 
 
-# Technique Two --- Small Multiples #
+## Technique Two --- Small Multiples ##
 
 ![IMAGE](Tech2.png)
 
@@ -188,7 +188,7 @@ the interface give advice for them to make better decision by modeling and predi
   
   
   
-# Technique Three --- Boxplot #
+## Technique Three --- Boxplot ##
 
   ![IMAGE](Tech3.png)
 
@@ -196,11 +196,11 @@ the interface give advice for them to make better decision by modeling and predi
 
 
 
-# Technique Four --- Mosaic Plot # 
+## Technique Four --- Mosaic Plot ##
 
   ![IMAGE](Tech4.png)
 
-# Technique Five --- Time Series Plot # 
+## Technique Five --- Time Series Plot ## 
 
   ![IMAGE](Tech5.png)
   
