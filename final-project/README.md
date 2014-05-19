@@ -131,6 +131,8 @@ Technique One --- Heatmap
   sales record); while the sales decreased in September, and even closed to 0 in the end of October.
   
 
+* Interactivity:
+  ![IMAGE](inter1.png)
   
 Technique Two --- Multiple Lines
 
