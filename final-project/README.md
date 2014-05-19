@@ -134,18 +134,59 @@ Technique One --- Heatmap
 * Interactivity:
   ![IMAGE](inter1.png)
   
-Technique Two --- Multiple Lines
+  * Select Dress_ID: 
+    Paste in any Dress_ID you are interested in into the search box (copied from the previous search page); 
+  * Filtering: 
+    The user has the option to filter the visualization by month and day based on their interest;
+  * Color Setting: The user can select any color scheme he/she prefer to control the color panel of the plot.
+  
 
 
+Technique Two --- Small Multiples
+
+![IMAGE](Tech2.png)
+
+* Reason for choosing this technique (What I think the visualization excels at) : 
+  The Heatmap provides users a big picture about the sales trend of a dress, but users may be more interested in a 
+  detailed and accurate sales trend with sales label on the plot to find business insights and then make business decisions. 
+  A small multiples provides both overall trend and a little bit detailed sales information for users. In addition, the 
+  Facet plot and Star-like plot gives other perspective to answer several different business questions.
+
+* How I encoded the data:
+  First, I only used numerical variables --- sales record for this plot; 
+  Second, I deleted `NA` values by using `na.omit`; 
+  Third,  I melt and ordered the data by `Dress_ID`;
+  In addition, I changed the time format by using `as.POSIXLT`;
+  Last, I changed month variable from numerical to factor, ordered it by normal month order
+  instead of alphabetical order, and scaled the months, 
+  
+* Evaluation:
+  The lie factor of this plot is also 1 since there is no misrepresentation and the trend of each line is just based on the 
+  accurate sales record; The data-density is relative lower than Heatmap, however it is still reasonable for this plot
+  (the density can be decreased by using `brushing`, which will be described  in the interactivity part); The legend makes the data-ink a little 
+  bit low, but I think it is necessary in my plot to distinguish months. I think the data-ink ratio is good for this plot after
+  I removed excessive axis titles, grid, tick marks.
+
+* What I learned about the dataset from the visualization:
+  From the above small multiples, we can see the detailed sales record by month and day. In general, the sales in August
+  are higher than other months except October 28th to 30th. Also there is a sudden increase　sales in middle of October due to some unknown reason which need
+  more data analysis to explore.
 
 
-
-
-
-
-
-
-
-
-
-
+* Interactivity:
+  ![IMAGE](inter2.png)
+  ![IMAGE](inter3.png)
+  
+  * Select Dress_ID: 
+    Paste in any Dress_ID you are interested in into the search box (copied from the previous search page); 
+  * Filtering: 
+    The user has the option to filter the visualization by month and day based on their interest;
+  * Color Setting: The user can select any color scheme he/she prefer to control the color panel of the plot.
+  * Brushing: The user has the option to brush the visualization by month to decrease the data-density of the plot for easy comparison.
+  * Facet Plot:
+    User can click the checkbox to see the facet plot to look insight about each month and compare all the months in a same view. 
+  * Star-like plot: User can click the checkbox to see the star-like plot.
+  
+  
+  
+  
