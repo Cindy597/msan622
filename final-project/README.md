@@ -174,9 +174,8 @@ Technique Two --- Small Multiples
 
 
 * Interactivity:
-  ![IMAGE](inter2.png)
-  ![IMAGE](inter3.png)
-  
+  ![IMAGE](inter4.png)
+
   * Select Dress_ID: 
     Paste in any Dress_ID you are interested in into the search box (copied from the previous search page); 
   * Filtering: 
