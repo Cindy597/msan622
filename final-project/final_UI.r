@@ -225,7 +225,7 @@ shinyUI(
                                        wellPanel(textInput(
                                          "future_time", 
                                          "Future time window (days):", 
-                                         '10'
+                                         '15'
                                        ),
                                        textInput(
                                          "DressID", 
@@ -271,7 +271,7 @@ shinyUI(
                                                                       list('Average','high','low','Medium','very-high'))),
                                             column(3,
                                                    radioButtons("waiseline",label="waiseline",
-                                                                      list('dropped','empire','natural','princess','null')
+                                                                      list('dropped','empire','natural','princess')
                                                                      ))),
                                           hr(),
                                           
@@ -290,7 +290,7 @@ shinyUI(
                                             column(3,
                                                    selectInput("Material",label="Material",
                                                                choices=c('cotton','mix','knitting','lace',
-                                                                         'silk','null',
+                                                                         'silk',
                                                                          'rayon','nylon','other'))),
                                             
                                             column(3,
@@ -307,19 +307,19 @@ shinyUI(
                                           fluidRow(
                                             column(3,
                                                    selectInput("Decoration",label="Decoration",
-                                                               choices=c('null','beading','lace','bow',
+                                                               choices=c('beading','lace','bow',
                                                                          'sashes','pockets')
                                                    )),
                                             
                                             column(3,
                                                    selectInput("Pattern.Type",label="Pattern.Type",
-                                                               choices=c('solid','null','print','animal',
+                                                               choices=c('solid','print','animal',
                                                                          'striped','dot','plaid')
                                                    )),
                                             
                                             column(5,
                                                    sliderInput("Rating","Rating",
-                                                               min=4.0,
+                                                               min=3.6,
                                                                max=5.0,
                                                                value=4.5,
                                                                step=0.1

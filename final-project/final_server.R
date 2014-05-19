@@ -102,6 +102,11 @@ Heatmap<-function(localFrame,sub_localFrame,colorScheme,DressID){
   
   p <- p + coord_polar()
   p <- p + coord_fixed(ratio =2)
+  p <-  p+theme(panel.grid.major.x = element_blank()) +
+    theme(panel.grid.minor.y = element_blank()) +
+    theme(axis.ticks.x = element_blank()) +
+    theme(axis.text.x = element_text(size = 12)) +
+    theme(axis.title.x = element_blank())
   return(p)
 }
 
@@ -167,6 +172,17 @@ MultipleLine<-function(localFrame,sub_localFrame,DressID,colorScheme,FACET,STARL
     # squarify grid (1 month to 1000 deaths)
     p <- p + coord_fixed(ratio = 1 / 10)
     p <- p + coord_polar()
+    p <- p + theme(panel.grid.major.x = element_blank()) +
+      theme(panel.grid.minor.y = element_blank()) +
+      theme(axis.ticks.x = element_blank()) +
+      theme(axis.text.x = element_text(size = 12)) +
+      theme(axis.title.x = element_blank()) 
+    
+    p <- p + theme(panel.background = element_rect(fill = NA))
+    p <- p + theme(legend.key = element_rect(fill = NA))
+    p <- p + theme(panel.grid.major = element_line(color = "grey90"))
+    p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
+    
   }else if (FACET=='TRUE'){
     p <- ggplot(
       subset(mydata, variable == DressID), 
@@ -197,6 +213,16 @@ MultipleLine<-function(localFrame,sub_localFrame,DressID,colorScheme,FACET,STARL
     p <- p + coord_fixed(ratio = 1 / 10)
     p <- p + facet_wrap(~ Month, ncol = 3)
     p <- p + theme(legend.position = "none")
+    p <- p + theme(panel.grid.major.x = element_blank()) +
+      theme(panel.grid.minor.y = element_blank()) +
+      theme(axis.ticks.x = element_blank()) +
+      theme(axis.text.x = element_text(size = 12)) +
+      theme(axis.title.x = element_blank()) 
+    
+    p <- p + theme(panel.background = element_rect(fill = NA))
+    p <- p + theme(legend.key = element_rect(fill = NA))
+    p <- p + theme(panel.grid.major = element_line(color = "grey90"))
+    p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
     
   }else{
     p <- ggplot(
@@ -226,6 +252,16 @@ MultipleLine<-function(localFrame,sub_localFrame,DressID,colorScheme,FACET,STARL
     
     # squarify grid (1 month to 1000 deaths)
     p <- p + coord_fixed(ratio = 1 / 10)
+    p <- p + theme(panel.grid.major.x = element_blank()) +
+      theme(panel.grid.minor.y = element_blank()) +
+      theme(axis.ticks.x = element_blank()) +
+      theme(axis.text.x = element_text(size = 12)) +
+      theme(axis.title.x = element_blank()) 
+    
+    p <- p + theme(panel.background = element_rect(fill = NA))
+    p <- p + theme(legend.key = element_rect(fill = NA))
+    p <- p + theme(panel.grid.major = element_line(color = "grey90"))
+    p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
   }
   return(p)
 }
@@ -301,9 +337,20 @@ BoxPlot<-function(localFrame,xaxis,fillby){
   p<-ggplot(subdata2, aes(x =V1, y = Rating)) 
   p<-p+geom_boxplot(aes(fill=factor(Fillby)))
   p<-p+geom_point(aes(color=factor(Fillby)))
+  #p <- p + guides(fill=guide_legend(title="Fill-By"))
   #p<-p+scale_colour_brewer(palette = colorScheme)
   #p<-p+scale_fill_brewer(palette = colorScheme)
   p<-p+facet_wrap(~Fillby, ncol =5)
+  p <- p + theme(panel.grid.major.x = element_blank()) +
+    theme(panel.grid.minor.y = element_blank()) +
+    theme(axis.ticks.x = element_blank()) +
+    theme(axis.text.x = element_text(size = 12)) +
+    theme(axis.title.x = element_blank()) 
+  #p <- p+labs(fill='Fill-By')
+  p <- p + theme(panel.background = element_rect(fill = NA))
+  p <- p + theme(legend.key = element_rect(fill = NA))
+  p <- p + theme(panel.grid.major = element_line(color = "grey90"))
+  p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
   return(p)
 }
 
@@ -389,6 +436,17 @@ HWplot<-function(ts_object,  n.ahead=n.ahead,  CI=.95,  error.ribbon='green', li
   graphset$Fitted<-c(rep(NA,  NROW(graphset)-(NROW(for_values) + NROW(fitted_values))),  fitted_values$value_fitted,  for_values$value_forecast)
   graphset.melt<-melt(graphset[, c('time', 'Actual', 'Fitted')], id='time')
   p<-ggplot(graphset.melt,  aes(x=time,  y=value)) + geom_ribbon(data=graphset, aes(x=time, y=Fitted, ymin=Fitted-dev,  ymax=Fitted + dev),  alpha=.2,  fill=error.ribbon) + geom_line(aes(colour=variable), size=line.size) + geom_vline(x=max(actual_values$time),  lty=2) + xlab('Time') + ylab('Value') + theme(legend.position='bottom') + scale_colour_hue('')
+  p <- p + theme(panel.grid.major.x = element_blank()) +
+    theme(panel.grid.minor.y = element_blank()) +
+    theme(axis.ticks.x = element_blank()) +
+    theme(axis.text.x = element_text(size = 12)) +
+    theme(axis.title.x = element_blank()) 
+  
+  p <- p + theme(panel.background = element_rect(fill = NA))
+  p <- p + theme(legend.key = element_rect(fill = NA))
+  p <- p + theme(panel.grid.major = element_line(color = "grey90"))
+  p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
+  
   return(p)
 }
 
@@ -898,8 +956,6 @@ shinyServer(function(input, output) {
      waiseline<-3
    }else if (waiseline=="princess"){
      waiseline<-4
-   }else if (waiseline=="null"){
-     waiseliine<-5
    }
    
    if (Size=="free"){
@@ -949,8 +1005,6 @@ shinyServer(function(input, output) {
     Material<-4
   }else if (Material=="silk"){
     Material<-5
-  }else if (Material=="null"){
-    Material<-6
   }else if (Material=="rayon"){
     Material<-10
   }else if (Material=="nylon"){
@@ -959,9 +1013,9 @@ shinyServer(function(input, output) {
     Material<-21
   }
   
+
   
-  
-  if (SleeveLength=="sleevless"){
+  if (SleeveLength=="sleeveless"){
     SleeveLength<-1
   }else if (SleeveLength=="halfsleeve"){
     SleeveLength<-2
@@ -1010,9 +1064,7 @@ shinyServer(function(input, output) {
  
  
  
- if (Decoration=='null'){
-   Decoration<-1
- }else if (Decoration=="beading"){
+if (Decoration=="beading"){
    Decoration<-2
  }else if (Decoration=="lace"){
    Decoration<-3
@@ -1027,8 +1079,6 @@ shinyServer(function(input, output) {
  
  if (Pattern.Type=="solid"){
    Pattern.Type<-1
- }else if (Pattern.Type=="null"){
-   Pattern.Type<-2
  }else if (Pattern.Type=="print"){
    Pattern.Type<-4
  }else if (Pattern.Type=="animal"){
