@@ -247,7 +247,7 @@ the interface give advice for them to make better decision by modeling and predi
   * Evaluation:
   	The lie factor of this plot is also 1 since there is no misrepresentation and the color of each box is just based on the 
   	accurate calculated Pearson correlation values; The data-density is relative low due to many empty boxes which indicate two factors are independent with each other; 
-  	The legend makes the data-ink lower, but I kept it since it is necessary for users to distinguish different standardized residuals level. The think the data-ink is good for this plot.
+  	The legend makes the data-ink lower, but I kept it since it is necessary for users to distinguish different standardized residuals level. I think the data-ink is good for this plot.
 
   * What I learned about the dataset from the visualization:
   	From the above Mosaic, we can see 'free' size and 'High' price level dresses has relatively high negative correlation, while 'free' and 'L' size  positively correlated to 'low' price 
@@ -260,11 +260,92 @@ the interface give advice for them to make better decision by modeling and predi
     The users have option to choose the x-axis variable they are interested in, for example, size, price, and so on.
 
   * Select y-axis:
-    Also, the users have option to choose the x-axis variable they are interested in
+    Also, the users have option to choose the x-axis variable they are interested in.
     
   
 
 ## Technique Five --- Time Series Plot ## 
 
   ![IMAGE](Tech5.png)
+  
+  * Reason for choosing this technique (What I think the visualization excels at) : 
+    The Heatmap and Small multiples shows historical sales trend of dresses, but managers are more interested in the future sales trend of dresses 
+    to set up price strategy. The time series plot shows both actual and fitted sales based on Holt Winters time series model in different colors 
+    for comparison. Also, it provides predicted sales for future 10 days with green shadowed confidence interval.. 
+    
+  * How I encoded the data:
+  	First, I only used numerical variables --- historical sales record; 
+  	Second, I deleted `NA` values by using `na.omit`; 
+  	Third,  built Holt winters time series model, and extracted both actual and fitted values; 
+  	In addition, I merged actual and fitted values by time;
+  	Last, melt sub data frame ('time', 'actual','fitted') by time.	
+ 
+  * Evaluation:
+  	The lie factor of this plot is also 1 since there is no misrepresentation and the lines are just based on the actual sales and 
+  	accurate calculated fitted values; The data-density is relative low, but it is reasonable for a time series plot;
+  	The legend makes the data-ink lower, but I kept it since it is necessary for users to distinguish actual or fitted sales. 
+  	I think the data-ink ratio is good for this plot after I removed excessive grid and tick marks.
+
+  * What I learned about the dataset from the visualization:
+  	From the above Time series, we can see the fitted sales values are very close to the actual sales, which means the built
+  	Holt Winters model is good for predicting sales. What's more, the plot shows predicted sales for the further 10 days sales, 
+  	which is very important for managers to make business decision.
+  	
+  	
+* Interactivity
+  ![IMAGE](inter7.png)
+  
+  * Select Future time window (days): 
+    The users have option to choose how many days in the future they want to see the prediction sales values;
+  * Select Dress_ID:
+    Also, the users have option to choose to predict which dress.
+    
+    
+
+
+## Prototype Feedback ##
+
+   * Got suggestion to create a recommendation engineer panel : If a user inputs a particular value of each feature, 
+     he/she can get the output of whether he should buy a particular cloth.
+     
+     Changes I made: I created a recommendation engineer panel in my shiny interface. It looks like following:
+     ![IMAGE](inter8.png)
+     
+     Users set up his/her own select preference about dress style, the recommendation engineer panel will automatically
+     give advice about whether the dress type is recommended by other customers.
+         
+   *  Got suggestion about there are too many machine learning implemented, but this may not be the best place to do it since it has to recalculate every time. 
+   
+      Changes I made: Instead of many machine learning algorithms, I finally only chose Random Forest model for prediction to save running time.
+      For a random forest model , the VarImpPlot could change every time due to the random nature of bootstrapping. So set the seed and wait
+     until a user wants to train a different tree.
+
+    * Got suggestion about putting all the sales on different days into the random forest data may not be valid since dresses that were sold more
+      meant they were more popular, and thus would also have much higher rating compared to dresses that were not so good in sale. 
+      Changes I made: Kicked out sales record from the random forest model, and only keep categorical variables, for example, price, seacon, size and so on 
+      in the Random forest model to see which variables are importance to predict whether a dress is recommended by other customers.
+
+
+## Challenges ##
+
+* One of the challenge parts for me is encode data properly before apply it directly into ggplot2. Since every plot has its 
+own characteristic and requirements of the data, it is hard and time-consuming for me to make changes of the data before every plot.
+For example, even though small multiples and time series plot looks similar, but I need deal with the data independently for them since 
+the data should be melt by different ID and based on different columns.
+
+* If I have more time, I would like to implement deeper analysis as a data scientist. In addition to the Holt Winter time series analysis,
+I will build different time series models, for example, moving average, ARIME, and SRIMA models to compare their accuracy. Similarly, in addition to 
+Random Forest model, I also can implement logistic regression or Naive Bayes model to make this shiny interface more professional for other data analyst or 
+data scientist to use. In other aspect, I will spend more time to improve my plots and the interactivity.
+
+Overall,  in addition to the techniques I learned during this class, I also explored time series modeling and machine learning modeling possibilities in the shiny App.
+I believe it is a great skill for me in my future study and work life. 
+ 
+
+
+    
+  
+  
+  
+  
   
