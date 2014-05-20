@@ -192,7 +192,31 @@ the interface give advice for them to make better decision by modeling and predi
 
   ![IMAGE](Tech3.png)
 
+* Reason for choosing this technique (What I think the visualization excels at) : 
+  As I mentioned before, there are several categorical variables in my dataset, for example, price, size,season, style and so on.
+  Research the relationship between those features of a dress type is necessary for manegers and customers to make better decision,
+  for example, the relationship between price and season can help product manager to set up price strategies for different season.
+  Boxplot is a good technique for this purpose since it is not only indicates two variables' relationship, but also shows detailed 
+  numerical information about variables relationship, for example, mean, standard error, and distribution range.
+  
 
+* How I encoded the data:
+  First, I only used categorical variables; 
+  Second, I deleted `NA` values by using `na.omit`; 
+  Third,  I changed all the categorical variables' type to factor;
+  In addition, I merged similar factor levels of a categorial variable together. For example, 's', 'S', 'Small',are 'small' are merged into a same factor level ;
+ 
+* Evaluation:
+  The lie factor of this plot is also 1 since there is no misrepresentation and the distribution and shape of box is just based on the 
+  accurate rating vales by x variable; The data-density is relative high
+  (the density can be increased or decreased by using different `fill by` variable, which will be described  in the interactivity part); The legend makes the data-ink a little 
+  bit low, but I think it is necessary in my plot to distinguish months. I think the data-ink ratio is good for this plot after
+  I removed excessive axis titles, grid, tick marks.
+
+* What I learned about the dataset from the visualization:
+  From the above small multiples, we can see the detailed sales record by month and day. In general, the sales in August
+  are higher than other months except October 28th to 30th. Also there is a sudden increase　sales in middle of October due to some unknown reason which need
+  more data analysis to explore.
 
 
 

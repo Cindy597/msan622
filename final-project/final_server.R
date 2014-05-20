@@ -351,6 +351,7 @@ BoxPlot<-function(localFrame,xaxis,fillby){
   p <- p + theme(legend.key = element_rect(fill = NA))
   p <- p + theme(panel.grid.major = element_line(color = "grey90"))
   p <- p + theme(panel.grid.minor = element_line(color = "grey90", linetype = 3))
+  p <- p+ theme(legend.position="none")
   return(p)
 }
 
