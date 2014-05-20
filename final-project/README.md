@@ -204,25 +204,27 @@ the interface give advice for them to make better decision by modeling and predi
   First, I only used categorical variables; 
   Second, I deleted `NA` values by using `na.omit`; 
   Third,  I changed all the categorical variables' type to factor;
-  In addition, I merged similar factor levels of a categorial variable together. For example, 's', 'S', 'Small',are 'small' are merged into a same factor level ;
+  In addition, I merged similar factor levels of a categorial variable together. For example, 's', 'S', 'Small',and 'small' are merged into a same factor level ;
  
 * Evaluation:
   The lie factor of this plot is also 1 since there is no misrepresentation and the distribution and shape of box is just based on the 
   accurate rating vales by x variable; The data-density is relative high
-  (the density can be increased or decreased by using different `fill by` variable, which will be described  in the interactivity part); The legend makes the data-ink a little 
-  bit low, but I think it is necessary in my plot to distinguish months. I think the data-ink ratio is good for this plot after
-  I removed excessive axis titles, grid, tick marks.
+  (the density can be increased or decreased by using different `fill by` variable, which will be described  in the interactivity part); 
+  I deleted the original legend since it makes the data-ink a little bit low, and instead I created grey label on the top of the plot 
+  to distinguish different categories of `fill by` variable. I think the data-ink ratio is good for this plot after
+  I removed excessive axis titles, grid, tick marks, and legend.
 
 * What I learned about the dataset from the visualization:
-  From the above small multiples, we can see the detailed sales record by month and day. In general, the sales in August
-  are higher than other months except October 28th to 30th. Also there is a sudden increase　sales in middle of October due to some unknown reason which need
-  more data analysis to explore.
-
+  From the above Boxplot, we can see that, no matter the price level of the dress, its ratings in summer are always higher than other
+  season, which means dresses sold in summer was easier to get good rating. 
+  
+* Interactivity
+  ![IMAGE](Tech3.png)
 
 
 ## Technique Four --- Mosaic Plot ##
 
-  ![IMAGE](Tech4.png)
+  ![IMAGE](inter5.png)
 
 ## Technique Five --- Time Series Plot ## 
 
