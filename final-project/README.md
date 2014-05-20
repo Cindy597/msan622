@@ -254,7 +254,7 @@ the interface give advice for them to make better decision by modeling and predi
   	level dresses. Also, 's' size dresses have positive correlation with Medium price dresses.
   
 * Interactivity
-  ![IMAGE](inter5.png)
+  ![IMAGE](inter6.png)
   
   * Select x-axis: 
     The users have option to choose the x-axis variable they are interested in, for example, size, price, and so on.
