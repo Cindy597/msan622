@@ -219,12 +219,12 @@ the interface give advice for them to make better decision by modeling and predi
   season, which means dresses sold in summer was easier to get good rating. 
   
 * Interactivity
-  ![IMAGE](Tech3.png)
+  ![IMAGE](inter5.png)
 
 
 ## Technique Four --- Mosaic Plot ##
 
-  ![IMAGE](inter5.png)
+  ![IMAGE](Tech4.png)
 
 ## Technique Five --- Time Series Plot ## 
 
