@@ -250,18 +250,17 @@ the interface give advice for them to make better decision by modeling and predi
   	The legend makes the data-ink lower, but I kept it since it is necessary for users to distinguish different standardized residuals level. The think the data-ink is good for this plot.
 
   * What I learned about the dataset from the visualization:
-  	From the above Mosaic, we can see that, no matter the price level of the dress, its ratings in summer are always higher than other
-  	season, which means dresses sold in summer was easier to get good rating. 
+  	From the above Mosaic, we can see 'free' size and 'High' price level dresses has relatively high negative correlation, while 'free' and 'L' size  positively correlated to 'low' price 
+  	level dresses. Also, 's' size dresses have positive correlation with Medium price dresses.
   
 * Interactivity
   ![IMAGE](inter5.png)
   
   * Select x-axis: 
     The users have option to choose the x-axis variable they are interested in, for example, size, price, and so on.
-    Due the data limitation, there is only one numerical feature variable --- Rating, which is used as y-axis (the y-axis is 
-    always Rating for this Boxplot. 
-  * Select fill-by variable:
-    In addition to x-axis and y-axis, users can choose any fill-by variable they are interested in for grouping and comparison.
+
+  * Select y-axis:
+    Also, the users have option to choose the x-axis variable they are interested in
     
   
 
