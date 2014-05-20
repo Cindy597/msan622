@@ -198,7 +198,6 @@ the interface give advice for them to make better decision by modeling and predi
   for example, the relationship between price and season can help product manager to set up price strategies for different season.
   Boxplot is a good technique for this purpose since it is not only indicates two variables' relationship, but also shows detailed 
   numerical information about variables relationship, for example, mean, standard error, and distribution range.
-  
 
 * How I encoded the data:
   First, I only used categorical variables; 
@@ -220,11 +219,51 @@ the interface give advice for them to make better decision by modeling and predi
   
 * Interactivity
   ![IMAGE](inter5.png)
-
-
+  
+  * Select x-axis: 
+    The users have option to choose the x-axis variable they are interested in, for example, size, price, and so on.
+    Due the data limitation, there is only one numerical feature variable --- Rating, which is used as y-axis (the y-axis is 
+    always Rating for this Boxplot. 
+  * Select fill-by variable:
+    In addition to x-axis and y-axis, users can choose any fill-by variable they are interested in for grouping and comparison.
+    
 ## Technique Four --- Mosaic Plot ##
 
   ![IMAGE](Tech4.png)
+  
+  * Reason for choosing this technique (What I think the visualization excels at) : 
+  	Boxplot shows users a basic numerical relationship between two variables. But for product manager or data analyst, the 
+  	basic overview is not enough to make decision, a statistical relationship analysis is required to test linearity or multicollinearity before
+  	building model and deeper analysis. Mosaic plot is a good technique to statistically test two variables' relationship based on standardized residuals (Pearson 
+  	correlation). Based on the Mosaic plot, the analyst or manager can decide which categorical variables are reasonable to be included in a 
+  	logistic regression model or Random Forest model.
+
+  * How I encoded the data:
+  	First, I only used categorical variables; 
+  	Second, I deleted `NA` values by using `na.omit`; 
+  	Third,  I changed all the categorical variables' type to factor;
+  	In addition, I merged similar factor levels of a categorial variable together. For example, 's', 'S', 'Small',and 'small' are merged into a same factor level ;
+ 
+  * Evaluation:
+  	The lie factor of this plot is also 1 since there is no misrepresentation and the color of each box is just based on the 
+  	accurate calculated Pearson correlation values; The data-density is relative low due to many empty boxes which indicate two factors are independent with each other; 
+  	The legend makes the data-ink lower, but I kept it since it is necessary for users to distinguish different standardized residuals level. The think the data-ink is good for this plot.
+
+  * What I learned about the dataset from the visualization:
+  	From the above Mosaic, we can see that, no matter the price level of the dress, its ratings in summer are always higher than other
+  	season, which means dresses sold in summer was easier to get good rating. 
+  
+* Interactivity
+  ![IMAGE](inter5.png)
+  
+  * Select x-axis: 
+    The users have option to choose the x-axis variable they are interested in, for example, size, price, and so on.
+    Due the data limitation, there is only one numerical feature variable --- Rating, which is used as y-axis (the y-axis is 
+    always Rating for this Boxplot. 
+  * Select fill-by variable:
+    In addition to x-axis and y-axis, users can choose any fill-by variable they are interested in for grouping and comparison.
+    
+  
 
 ## Technique Five --- Time Series Plot ## 
 
